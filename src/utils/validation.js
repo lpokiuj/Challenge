@@ -40,6 +40,8 @@ const userUpdateValidation = (data) => {
             .required(),
     });
 
+    return schema.validate(data);
+
 }
 
 const postValidation = (data) => {

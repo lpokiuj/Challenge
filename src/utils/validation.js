@@ -32,6 +32,16 @@ const loginValidation = (data) => {
     return schema.validate(data);
 }
 
+const userUpdateValidation = (data) => {
+
+    const schema = joi.object({
+        email: joi.string()
+            .email()
+            .required(),
+    });
+
+}
+
 const postValidation = (data) => {
 
     const schema = joi.object({
@@ -45,4 +55,4 @@ const postValidation = (data) => {
     return schema.validate(data);
 }
 
-module.exports = { registerValidation, loginValidation, postValidation };
+module.exports = { registerValidation, loginValidation, userUpdateValidation, postValidation };

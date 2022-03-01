@@ -15,7 +15,9 @@ router.get('/', verifyToken, userController.getAllUser);
 router.get('/:id', verifyToken, userController.getUserbyId);
 
 // Update data user
+router.put('/:id', verifyToken, userController.updateUserbyId);
 
 // Delete user
+router.delete('/:id', verifyToken, userController.deleteUserbyId);
 
 module.exports = router;

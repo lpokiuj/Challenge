@@ -40,7 +40,7 @@ module.exports = {
         try{
             const savedUser = await user.save();
             res.status(201).json({
-                user: user._id
+                id: user._id
             });
         }   
         catch(err){

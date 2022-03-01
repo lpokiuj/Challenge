@@ -11,22 +11,29 @@ const postRoutes = require('./src/routes/post.route');
 dotenv.config();
 
 // Connect DB
-DBConnect().then(() => console.log("Connected to DB")).catch(err => console.log(err));
+DBConnect().then(() => console.log('Connected to DB')).catch(err => console.log(err));
 async function DBConnect(){
     await mongoose.connect(process.env.DATABASE_CONNECT, { 
         ssl: true,
-        sslValidate: false
+        sslValidate: false,
+        keepAlive: 1,
     });
 }
 
 // Middleware
 app.use(express.json());
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
+app.get('/hello', (req, res) => {
+    res.json({
+        msg: 'yahoo'
+    });
+});
+
 // Listen to server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
     console.log('PORT start on ' + PORT);
 });

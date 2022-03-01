@@ -30,6 +30,15 @@ module.exports = {
         });
     },
     updateUserbyId: async (req, res) => {
+
+        // Validate
+        const { error } = userUpdateValidation(req.body);
+        if(error){
+            return res.status(400).json({
+                err: error.details[0].message
+            });
+        }
+
         let user = await User.findById(req.params.id).exec();
         if(!user){
             return res.status(404).json({
@@ -54,7 +63,7 @@ module.exports = {
         try{
             const savedUser = await user.save();
             res.status(201).json({
-                user: user._id
+                id: user._id
             });
         }
         catch(err){

@@ -26,12 +26,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
-app.get('/hello', (req, res) => {
-    res.json({
-        msg: 'yahoo'
-    });
-});
-
 // Listen to server
 const PORT = process.env.PORT || 3000;
 module.exports = app.listen(PORT, () => {

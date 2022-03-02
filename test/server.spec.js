@@ -13,8 +13,8 @@ describe("Testing API", () => {
       .request(server)
       .post("/api/auth/register")
       .send({
-        name: "Made",
-        email: "made@gmail.com",
+        name: "Michael",
+        email: "michael@gmail.com",
         password: "janganliat",
       })
       .end((err, res) => {
@@ -25,7 +25,7 @@ describe("Testing API", () => {
           .request(server)
           .post("/api/auth/login")
           .send({
-            email: "made@gmail.com",
+            email: "michael@gmail.com",
             password: "janganliat",
           })
           .end((err, res) => {
@@ -37,8 +37,8 @@ describe("Testing API", () => {
               .post("/api/post/")
               .set("auth-token", token)
               .send({
-                title: "Title 2",
-                description: "Description of title 2",
+                title: "Title 1",
+                description: "Description of title 1",
               })
               .end((err, res) => {
                 res.should.have.status(201);
@@ -48,7 +48,7 @@ describe("Testing API", () => {
                   .put("/api/user/" + id)
                   .set("auth-token", token)
                   .send({
-                    email: "made@yahoo.com",
+                    email: "michael@yahoo.com",
                   })
                   .end((err, res) => {
                     res.should.have.status(201);

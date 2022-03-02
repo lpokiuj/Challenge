@@ -36,7 +36,7 @@ Pattern project yang saya gunakan dalam membuat REST API dengan Node.js ini adal
 Pattern ini mirip dengan MVC (Model - View - Controller) tetapi karena tidak ada View saya ganti dengan Route.
 
 Saya menggunakan pattern ini karena pattern MRC merupakan pattern yang simple dan teroganisir secara baik sehingga proses debug pun dapat berjalan secara cepat.
-Dan juga jika klien ingin melihat file dari projectnya, akan mudah bagi klien untuk mencari file yang diinginkan karena filenya tersusun secara rapi  
+Dan juga jika klien ingin melihat file dari projectnya, akan mudah bagi klien untuk mencari file yang diinginkan karena filenya tersusun secara rapi.  
   
 ## Contact
 

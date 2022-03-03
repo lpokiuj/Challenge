@@ -65,8 +65,8 @@ describe("Testing API", () => {
         });
     });
     afterEach('Cleanup dummy data', (done) => {
-        User.deleteOne({ name: 'Michael' });
-        Post.deleteOne({ title: 'Title 1' });
-        done();
+        User.deleteOne({ name: 'Michael' })
+            .then(Post.deleteOne({ authorName: 'Michael' }))
+            .then(done());
     });
 });
